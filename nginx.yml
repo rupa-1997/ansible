@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: install nginx
+    yum:
+      name=nginx
+      state=latest
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+  - name: ensure nginx installed
+    service:
+      name: nginx
+      state: stopped
+  - name: restart nginx
+    systemd:
+      name: nginx.service
+      state: restarted
+    register: nginx
+  - debug: var=nginx
