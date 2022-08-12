@@ -1,0 +1,9 @@
+---
+- name: check the space usage
+  hosts: localhost
+  tasks:
+   - name: check the diskusage on servers
+     shell: df -h
+     register: result
+   - debug:
+        var: result.stdout_lines
