@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+  - name: hostname
+    register: ansible_hostname
+    debug:
+       var=ansible_hostname
+
+  - name: hostdistribution
+    register: ansible_distribution
+    debug:
+       var=ansible_distribution
+
+  - name: ansibleversion
+    register: ansible_version
+    debug:
+       var=ansible_version
